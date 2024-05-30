@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Employee Management System - My Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="main">
+
+    <div class="header">
+        <div class="header_resize">
+            <div class="logo">
+                <h1><a href="/"><span>EmployeeManagement </span> <small> </small></a></h1>
+            </div>
+            <div class="menu_nav">
+                <ul>
+                    <li class="active"><a href="/showuserhome" style="color:white;">Home</a></li>
+                    <li><a href="/userviewemployee" style="color:white;">My Details</a></li>
+                    <li><a href="/attendance" style="color:white;">Attendance</a></li>
+
+                    <li><a href="/viewscheme" style="color:white;">View Salary</a></li>
+                    <li><a href="/apply_leave" style="color:white;">Apply Leave</a></li>
+                    <li><a href="/userleave_applications" style="color:white;"> View Apply Leave</a></li>
+                    <li><a href="/logout" style="color:black;">Logout</a></li>
+                </ul>
+            </div>
+            <div class="clr"></div>
+            <div class="hbg"><img src="{{ url_for('static',filename='images/header_images.jpg') }}" width="430" height="315" alt="header images" class="fl" />
+              <div class="hbg"><img src="{{ url_for('static',filename='images/fbg_bg.jpg') }}" width="540" height="315" alt="header images" class="fl" />
+              
+              </div>
+              <div class="clr"></div>
+            </div>
+            <div class="clr"></div>
+          </div>
+        </div>
+      
+        </div>
+    </div>
+
+    <h1>My Details</h1>
+    <center>
+    <div class="content">
+        <form name="myDetailsForm" action="/userviewemployee" method="POST">
+            <table border="1">
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th>Address</th>
+                    <th>Mobile Number</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Designation</th>
+                    <th>Password</th>
+                </tr>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['id'] }}</td>
+                    <td>{{ row['ename'] }}</td>
+                    <td>{{ row['addr'] }}</td>
+                    <td>{{ row['mbl'] }}</td>
+                    <td>{{ row['dob'] }}</td>
+                    <td>{{ row['email'] }}</td>
+                    <td>{{ row['job'] }}</td>
+                    <td>{{ row['desin'] }}</td>
+                    <td>{{ row['psw'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </form>
+        <div class="clr"></div>
+    </div>
+</div>
+</center>
+<div class="fbg">
+    <div class="fbg_resize">
+        <!-- Footer content here -->
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer_resize">
+        <p class="lf">© Copyright <a href="#">Employee Management </a>.</p>
+        <p class="rf"> Employee Management System</p>
+        <div class="clr"></div>
+    </div>
+</div>
+
+</body>
+</html>

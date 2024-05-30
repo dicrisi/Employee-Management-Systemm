@@ -1,0 +1,99 @@
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employeee Management System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="static/js/script.js"></script>
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<script type="text/javascript" src="static/js/cufon-yui.js"></script>
+<script type="text/javascript" src="static/js/arial.js"></script>
+<script type="text/javascript" src="static/js/cuf_run.js"></script>
+<!-- CuFon ends -->
+</head>
+   <body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/"><span>EmployeeManagement </span> <small> </small></a></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="/showuserhome" style="color:white;">Home</a></li>
+          <li><a href="/userviewemployee" style="color:white;">My Details</a></li>
+          <li><a href="/attendance" style="color:white;">Attendance</a></li>
+
+          <li><a href="/viewscheme" style="color:white;">View Salary</a></li>
+          <li><a href="/apply_leave" style="color:white;"> Apply Leave </a></li>
+          <li><a href="/userleave_applications" style="color:white;"> View Apply Leave</a></li>
+          <li><a href="/logout" style="color:black;">Logout</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="hbg"><img src="{{ url_for('static',filename='images/header_images.jpg') }}" width="430" height="315" alt="header images" class="fl" />
+        <div class="hbg"><img src="{{ url_for('static',filename='images/fbg_bg.jpg') }}" width="540" height="315" alt="header images" class="fl" />
+        
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Leave Applications</title>
+</head>
+<center><form name="" action="/viewscheme" method="POST">
+   <center><h2>View Salary Details</h2></center> 
+<table border = 1>
+     <tr>
+      <th>Employee mail</th>
+       <th>Salary date</th>
+      <th>Employee Name</th>
+     <th>Basic Salary</th>
+     <th>Bonus</th>
+     <th>PF</th>
+     <th>HRA</th>
+     <th>LIC</th>
+     <th>No OF Days Present</th>
+     <th>Total Salary</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['sdat'] }}</td>
+            <td>{{ row['ename'] }}</td>
+            <td>{{ row['bs'] }}</td>
+            <td>{{ row['bonus'] }}</td> 
+            <td>{{ row['pf'] }}</td>
+            <td>{{ row['hra'] }}</td>
+            <td>{{ row['lic'] }}</td>
+            <td>{{ row['noofdays'] }}</td>
+            <td>{{ row['total'] }}</td>
+        </tr>
+        {% endfor %}
+
+  </table>
+  </form>
+</center>
+<div class="clr"></div>
+</div>
+</div>
+</div>
+</div><br>
+
+<div class="footer">
+<div class="footer_resize">
+  <p class="lf">© Copyright <a href="#">Employee Management System</a>.</p>
+  
+  <div class="clr"></div>
+</div>
+</div>
+</div>

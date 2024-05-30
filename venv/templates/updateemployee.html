@@ -1,0 +1,109 @@
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Management System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="{{ url_for('static',filename='/js/jquery-1.3.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='/js/script.js') }}"></script>
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<script type="text/javascript" src="{{ url_for('static',filename='/js/cufon-yui.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='js/arial.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='/js/cuf_run.js') }}"></script>
+<!-- CuFon ends -->
+</head>
+   <body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+       <h1><a href="/"><span>EmployeeManagement </span> <small> </small></a></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="/adminhome">Home</a></li>
+   
+         <li><a href="/addnote" style="color:white;">Add Employee</a></li>
+         <li><a href="/viewemployee" style="color:white;">View Employee</a></li>
+         <li><a href="/ashow2" style="color:white;">View Attendance</a></li>
+        
+         <li><a href="/addsalary" style="color:white;">Add salary</a></li>
+         <li><a href="/leave_application" style="color:white;">  Leave Apply</a></li>
+         <li><a href="/logout" style="color:white;">Logout</a></li>
+       </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="hbg"><img src="{{ url_for('static',filename='images/header_images.jpg') }}" width="430" height="315" alt="header images" class="fl" />
+        <div class="hbg"><img src="{{ url_for('static',filename='images/fbg_bg.jpg') }}" width="540" height="315" alt="header images" class="fl" />
+      
+        <div class="clr"></div>
+      </div>
+     </div> 
+    </div>
+  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+    <!-- Add your CSS links here -->
+</head>
+<body>
+    <div align="center">
+        <h1>Update Allotment</h1>
+        <form name="update_allotment_form" action="/updateemployee/{{ employee_details.id }}" method="post">
+
+            <label for="ename">Employee ID :</label><br>
+            <input type="text" id="id" name="id" value="{{ employee_details['id'] }}"><br><br>
+
+            <label for="name"> Employee Name:</label><br>
+            <input type="text" id="ename" name="ename" value="{{ employee_details['ename'] }}"><br><br>
+            
+            <label for="Address"> Address:</label><br>
+            <input type="text" id="addr" name="addr" value="{{ employee_details['addr'] }}"><br><br>
+
+            <label for="Mobile">Mobile :</label><br>
+            <input type="text" id="mbl" name="mbl" value="{{ employee_details['mbl'] }}"><br><br>
+
+            
+            <label for="Dob">DOB :</label><br>
+            <input type="date" id="dob" name="dob" value="{{ employee_details['dob'] }}"><br><br>
+
+             
+            <label for="Emailid">Emailid :</label><br>
+            <input type="mail" id="email" name="email" value="{{ employee_details['email'] }}"><br><br>
+
+            <label for="Password">Password :</label><br>
+            <input type="Password" id="psw" name="psw" value="{{ employee_details['psw]'] }}"><br><br>
+
+           
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
+
+<div class="clr"></div>
+</div>
+</div>
+</div>
+</div><br><br><br><br><br><br><br>
+<div class="fbg">
+<div class="fbg_resize">
+ 
+</div>
+</div>
+<div class="footer">
+      <div class="footer_resize">
+        <p class="lf">© Copyright <a href="#">Employeemanagement </a>.</p>
+        <p class="rf"> Employee Management System</a></p>
+  <div class="clr"></div>
+</div>
+</div>
+</div>
+

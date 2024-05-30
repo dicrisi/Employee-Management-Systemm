@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Management System</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.3.2.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/cufon-yui.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/arial.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/cuf_run.js') }}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/"><span>EmployeeManagement</span> <small></small></a></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+           <li class="active"><a href="/adminhome">Home</a></li>
+           <li><a href="/addnote" style="color:white;">Add Employee</a></li>
+           <li><a href="/viewemployee" style="color:white;">View Employee</a></li>
+           <li><a href="/ashow2" style="color:white;">View Attendance</a></li>
+           <li><a href="/addsalary" style="color:black;">Add Salary</a></li>
+           <li><a href="/leave_application" style="color:black;"> Leave Apply</a></li>
+           <li><a href="/logout" style="color:black;">Logout</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="hbg"><img src="{{ url_for('static', filename='images/header_images.jpg') }}" width="430" height="315" alt="header images" class="fl" />
+        <div class="hbg"><img src="{{ url_for('static', filename='images/fbg_bg.jpg') }}" width="540" height="315" alt="header images" class="fl" />
+        </div>
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <center>
+    <h2>Salary Details</h2>
+    <form id="salaryForm" method="post" action="/add_salary">
+        <div align="center">
+            <table>
+                <th> Add Salary Details </th>
+                <tr>
+                    <td>Employee Email</td>
+                    <td>
+                        <select id="id" name="email" onchange="fetchEmployeeName(this.value)">
+                            {% for employee in employees %}
+                                <option value="{{ employee['email'] }}">{{ employee['email'] }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Salary Date</td>
+                    <td><input type="date" id="sdat" name="sdat" /></td>
+                </tr>
+                <tr>
+                    <td>Employee Name</td>
+                    <td><input type="text" id="ename" name="ename" readonly /></td>
+                </tr>
+                <tr>
+                    <td>Basic Salary</td>
+                    <td><input type="text" id="bs" name="bs" /></td>
+                </tr>
+                <tr>
+                    <td>Bonus</td>
+                    <td><input type="text" id="bonus" name="bonus" /></td>
+                </tr>
+                <tr>
+                    <td>PF</td>
+                    <td><input type="text" id="pf" name="pf" /></td>
+                </tr>
+                <tr>
+                    <td>HRA</td>
+                    <td><input type="text" id="hra" name="hra" /></td>
+                </tr>
+                <tr>
+                    <td>LIC</td>
+                    <td><input type="text" id="lic" name="lic" /></td>
+                </tr>
+                <tr>
+                    <td>No OF Days Working</td>
+                    <td><input type="text" id="noofdays" name="noofdays" /></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Generate Salary" onclick="calculateSalary()"></td>
+                </tr>
+                <tr>
+                    <td>Total Salary</td>
+                    <td><input type="text" id="total" name="total" readonly /></td>
+                </tr>
+            </table>
+        </div>
+        <input type="submit" name="submit" value="Submit">
+    </form>
+  </center>
+
+<script>
+    function calculateSalary() {
+        var basicsalary = parseFloat(document.getElementById("bs").value) || 0;
+        var bonus = parseFloat(document.getElementById("bonus").value) || 0;
+        var pf = parseFloat(document.getElementById("pf").value) || 0;
+        var hra = parseFloat(document.getElementById("hra").value) || 0;
+        var lic = parseFloat(document.getElementById("lic").value) || 0;
+        var noofdays = parseFloat(document.getElementById("noofdays").value) || 0;
+
+        var totalSalary = (basicsalary + bonus) - (pf + hra + lic);
+        document.getElementById("total").value = totalSalary;
+    }
+
+    function fetchEmployeeName(empEmail) {
+        $.ajax({
+            url: '/get_employee_name',
+            type: 'POST',
+            data: JSON.stringify({'email': empEmail}),
+            contentType: 'application/json',
+            success: function(response) {
+                document.getElementById('ename').value = response.ename;
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+</script>
+
+<div class="footer">
+    <div class="footer_resize">
+        <p class="lf">© Copyright <a href="#">Employee Management System</a>.</p>
+        <p class="rf">Employee Management System</p>
+        <div class="clr"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>

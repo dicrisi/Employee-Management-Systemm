@@ -1,0 +1,75 @@
+<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Employee Management System </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="static/js/script.js"></script>
+<!-- CuFon: Enables smooth pretty custom font rendering. 100% SEO friendly. To disable, remove this section -->
+<script type="text/javascript" src="static/js/cufon-yui.js"></script>
+<script type="text/javascript" src="static/js/arial.js"></script>
+<script type="text/javascript" src="static/js/cuf_run.js"></script>
+<!-- CuFon ends -->
+</head>
+   <body>
+
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/"><span>EmployeeManagement </span> <small></small></a></h1>
+      </div>
+      <div class="menu_nav">
+        <ul>
+           <li class="active"><a href="/adminhome" style="color:white;">Home</a></li>
+    
+          <li><a href="/addnote" style="color:white;">Add Employee</a></li>
+          <li><a href="/viewemployee" style="color:white;">View Employee</a></li>
+          <li><a href="/ashow2" style="color:white;">View Attendance</a></li>
+      
+          <li><a href="/addsalary" style="color:black;">Add salary</a></li>
+          <li><a href="/leave_application" style="color:black;">  Leave Apply</a></li>
+          <li><a href="/logout" style="color:black;">Logout</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <div class="hbg"><img src="static/images/header_images.jpg" width="430" height="315" alt="header images" class="fl" />
+        <div class="hbg"><img src="{{ url_for('static',filename='images/fbg_bg.jpg') }}" width="540" height="315" alt="header images" class="fl" />
+        
+        <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+
+
+  <div class="content">
+    <div class="content_resize">
+      <tr class="mainbar">
+     
+      <form action = "/asigninclick" method = "POST">
+
+      </form>
+     
+    </div>
+  </div>
+  </div>
+</div><br>
+<h1>Welcome Admin</h1>
+  <div class="fbg">
+  
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">© Copyright <a href="#"> EmployementMAnagement</a>.</p>
+      <p class="rf">Employement Management System </a></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+
+
+   </body>
+</html>
